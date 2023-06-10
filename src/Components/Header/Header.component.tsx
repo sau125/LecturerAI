@@ -6,7 +6,12 @@ const HeaderComponent: FC = () => {
       className="justify-content-center align-items-center"
       style={{ height: 100 }}
     >
-      <h1 className="bg-warning rounded h-100 pt-4">LecturerAI</h1>
+      <h1
+        style={{ backgroundColor: "#3883fc" }}
+        className="rounded h-100 pt-4"
+      >
+        LecturerAI
+      </h1>
     </nav>
   );
 };

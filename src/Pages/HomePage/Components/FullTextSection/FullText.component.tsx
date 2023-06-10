@@ -28,13 +28,16 @@ const FullTextComponent: FC<FullTextProps> = ({ text, delay }) => {
   }, [text, delay, index]);
 
   return (
-    <div className="full-text-section bg-info h-50 d-flex justify-content-center align-items-center">
+    <div
+      style={{ backgroundColor: "#78aafa" }}
+      className="full-text-section h-50 d-flex justify-content-center align-items-center"
+    >
       <textarea
         placeholder="Click on the generate text to convert audio into text"
         className="w-75"
         readOnly
         value={displayText}
-        style={{ height: 250 }}
+        style={{ height: 230, backgroundColor: "#9abefc" }}
       />
     </div>
   );

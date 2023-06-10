@@ -11,7 +11,7 @@ const SummarySectionComponent: FC<SummarySectionProps> = ({ text }) => {
 
   const configuration = new Configuration({
     // apiKey: process.env.OPENAI_API_KEY,
-    apiKey: "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",
+    apiKey: process.env.REACT_APP_PUBLIC_OPENAI_API_KEY,
   });
   const openai = new OpenAIApi(configuration);
 
@@ -48,17 +48,25 @@ const SummarySectionComponent: FC<SummarySectionProps> = ({ text }) => {
   }, [text]);
 
   return (
-    <div>
+    <div className=" h-50 ">
       <div>
-        <button onClick={(e) => HandleSubmit(e)}>Summarize Text</button>
+        <button
+          style={{ backgroundColor: "#3883fc" }}
+          onClick={(e) => HandleSubmit(e)}
+        >
+          Summarize Text
+        </button>
       </div>
-      <div className="summary-section bg-primary h-50">
+      <div
+        style={{ backgroundColor: "#78aafa" }}
+        className="summary-section mt-2"
+      >
         <textarea
           placeholder="Click on the Summarise Text button to summarise the text"
           className="w-75"
           readOnly
           value={summarizedtext}
-          style={{ height: 250 }}
+          style={{ height: 230, backgroundColor: "#9abefc" }}
         />
       </div>
     </div>

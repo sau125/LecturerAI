@@ -30,8 +30,7 @@ const HomePageComponent: FC = () => {
     setLoading(true);
     const res = await fetch("https://api.openai.com/v1/audio/transcriptions", {
       headers: {
-        Authorization:
-          "Bearer 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",
+        Authorization: `Bearer ${process.env.REACT_APP_PUBLIC_OPENAI_API_KEY}`,
       },
       method: "POST",
       body: formData,
@@ -47,19 +46,31 @@ const HomePageComponent: FC = () => {
   useEffect(() => {}, [convertedText]);
   return (
     <div className="d-flex home-page m-4 pb-2" style={{ height: 580 }}>
-      <div className="col-4">
-        <div className="upload-section bg-secondary bg-gradient h-100 d-flex justify-content-center align-items-center">
+      <div className="col-4 px-4">
+        <div
+          style={{ backgroundColor: "#78aafa" }}
+          className="p-2 upload-section bg-gradient h-100 d-flex justify-content-center align-items-center"
+        >
           <div className="col ml-0">
-            <div className="w-100 d-flex justify-content-center">
+            <div
+              className="w-100 d-flex justify-content-center"
+              style={{ backgroundColor: "#3883fc" }}
+            >
               <input
+                style={{ backgroundColor: "#9abefc" }}
                 type="file"
                 accept="audio/*"
                 onChange={(e) => handleFile(e)}
               />
             </div>
 
-            <div className="w-100 d-flex mt-4">
-              <button onClick={GenerateText}>Generate Text</button>
+            <div className="w-100 d-flex mt-4 justify-content-center">
+              <button
+                style={{ backgroundColor: "#3883fc" }}
+                onClick={GenerateText}
+              >
+                Generate Text
+              </button>
             </div>
           </div>
         </div>
